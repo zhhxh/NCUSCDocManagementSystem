@@ -1,0 +1,4 @@
+# NCUSCDocManagementSystem
+南昌大学软件学院电子文档及科研课题管理系统
+
+后台搭建使用Springboot,持久层技术使用mybatis,前端使用thymeleaf引擎
