@@ -2,7 +2,7 @@ package com.ncusc.dms.service;
 
 import java.util.List;
 
-import com.ncusc.dms.Mapper.AdminMapper;
+import com.ncusc.dms.mapper.AdminMapper;
 import com.ncusc.dms.pojo.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

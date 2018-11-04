@@ -1,4 +1,4 @@
-package com.ncusc.dms.Mapper;
+package com.ncusc.dms.mapper;
 import java.util.List;
 
 import com.ncusc.dms.pojo.Admin;
