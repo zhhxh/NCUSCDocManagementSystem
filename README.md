@@ -6,5 +6,5 @@
 持久层使用mybatis技术  
 前端使用thymeleaf引擎
 
-将本项目导入myEclipse或者IDEA  
+将本项目导入IDEA或者myEclipse  
 按照IDE提示将本项目运行起来
