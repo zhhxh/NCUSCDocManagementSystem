@@ -1,5 +1,11 @@
 package com.ncusc.dms.pojo;
 
+/**
+ * Admin的实体类
+ * @author WANGHAO
+ * @version 1.0.0
+ *
+ */
 public class Admin {
 
     private int aId;		//ID

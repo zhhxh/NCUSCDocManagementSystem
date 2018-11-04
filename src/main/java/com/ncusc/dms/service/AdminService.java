@@ -5,7 +5,14 @@ import java.util.List;
 import com.ncusc.dms.Mapper.AdminMapper;
 import com.ncusc.dms.pojo.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+/**
+ * Admin 的service类
+ * @author WANGHAO
+ * @version 1.0.0
+ */
+@Service
 public class AdminService {
     @Autowired
     AdminMapper adminmapper;
