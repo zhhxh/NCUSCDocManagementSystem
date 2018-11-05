@@ -24,9 +24,6 @@ public class AdminService {
     @Autowired
     AdminMapper adminmapper;
 
-    @Autowired
-    RedisTemplate redisTemplate;
-
     @CachePut(cacheNames = "admin_cache",key = "'id_'+id")//直接更新
     public Admin add(Admin admin) {
         adminmapper.add(admin);

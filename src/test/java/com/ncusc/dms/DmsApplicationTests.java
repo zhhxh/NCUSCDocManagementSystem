@@ -14,6 +14,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+
+/**
+ * @author WANGHAO
+ * @version 1.0.0
+ */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -66,18 +71,6 @@ public class DmsApplicationTests {
 		System.out.println("Addr:"+admin.getAddr());
 		System.out.println("Limit:"+admin.getLevel());
 		System.out.println("Date:"+admin.getDate());
-		admin =null;
-		admin = adminService.get("1");
-		System.out.println("ID:"+admin.getId());
-		System.out.println("Password:"+admin.getPassword());
-		System.out.println("Name:"+admin.getName());
-		System.out.println("Sex:"+admin.getSex());
-		System.out.println("PhoNum:"+admin.getPhoNum());
-		System.out.println("Email:"+admin.getEmail());
-		System.out.println("Addr:"+admin.getAddr());
-		System.out.println("Limit:"+admin.getLevel());
-		System.out.println("Date:"+admin.getDate());
-		adminService.delete("1");
 
 	}
 
