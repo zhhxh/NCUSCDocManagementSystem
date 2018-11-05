@@ -1,68 +1,96 @@
 package com.ncusc.dms.pojo;
 
+import java.io.Serializable;
+
 /**
  * Admin的实体类
+ * 实体类必须实现Serializable接口才能放入Redis缓冲
  * @author WANGHAO
  * @version 1.0.0
  *
  */
-public class Admin {
+public class Admin implements Serializable {
 
-    private int aId;		//ID
-    private String aPassword;	//姓名
-    private String aName;	//姓名
-    private String aSex;	//性别
-    private String aPhoNum;	//手机
-    private String aAddr;	//地址
-    private int aLimit;	//权限 0->管理员
-    private String aDate;	//注册日期
-    public int getaId() {
-        return aId;
+    private String id;		        //ID
+    private String password;	    //姓名
+    private String name;	        //姓名
+    private String sex;	        //性别
+    private String phoNum;	    //手机
+    private String email;         //邮箱
+    private String addr;	        //地址
+    private int level;	        //权限 0->管理员
+    private String date;	        //注册日期
+
+    public String getId() {
+        return id;
     }
-    public void setaId(int aId) {
-        this.aId = aId;
+
+    public void setId(String id) {
+        this.id = id;
     }
-    public String getaName() {
-        return aName;
+    public String getPassword() {
+        return password;
     }
-    public void setaName(String aName) {
-        this.aName = aName;
+
+    public void setPassword(String password) {
+        this.password = password;
     }
-    public String getaSex() {
-        return aSex;
+
+    public String getName() {
+        return name;
     }
-    public void setaSex(String aSex) {
-        this.aSex = aSex;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getaPhoNum() {
-        return aPhoNum;
+
+    public String getSex() {
+        return sex;
     }
-    public void setaPhoNum(String aPhoNum) {
-        this.aPhoNum = aPhoNum;
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
-    public String getaAddr() {
-        return aAddr;
+
+    public String getPhoNum() {
+        return phoNum;
     }
-    public void setaAddr(String aAddr) {
-        this.aAddr = aAddr;
+
+    public void setPhoNum(String phoNum) {
+        this.phoNum = phoNum;
     }
-    public int getaLimit() {
-        return aLimit;
+
+    public String getEmail() {
+        return email;
     }
-    public void setaLimit(int aLimit) {
-        this.aLimit = aLimit;
+
+    public void setEmail(String email) {
+        this.email = email;
     }
-    public String getaDate() {
-        return aDate;
+
+    public String getAddr() {
+        return addr;
     }
-    public void setaDate(String aDate) {
-        this.aDate = aDate;
+
+    public void setAddr(String addr) {
+        this.addr = addr;
     }
-    public String getaPassword() {
-        return aPassword;
+
+    public int getLevel() {
+        return level;
     }
-    public void setaPassword(String aPassword) {
-        this.aPassword = aPassword;
+
+    public void setLevel(int level) {
+        this.level = level;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 
 }

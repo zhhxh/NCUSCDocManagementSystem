@@ -8,6 +8,33 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
+	<!-- 依赖仓库 设置从aliyun仓库下载-->
+	<repositories>
+		<repository>
+			<id>alimaven</id>
+			<url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<!-- 插件依赖仓库 -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>alimaven</id>
+			<url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<name>dms</name>
 	<description>南昌大学软件学院电子文档及科研课题管理系统</description>
 
@@ -63,6 +90,12 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.1.10</version>
+		</dependency>
 		<!-- 分页 -->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
@@ -82,10 +115,32 @@
 			<version>5.1.21</version>
 		</dependency>
 
+		<!--Redis-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>redis.clients</groupId>
+					<artifactId>jedis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+		</dependency>
+
+
 		<!-- tomcat的支持.-->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 
 	</dependencies>
