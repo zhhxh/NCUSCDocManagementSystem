@@ -42,7 +42,7 @@ public class AdminService {
     public Admin get(String id) {
         return adminmapper.get(id);
     }
-    @Cacheable(cacheNames = "admin_cache", key = "adminlist")//检查后更新
+    @Cacheable(cacheNames = "admin_cache", key = "'adminList'")//检查后更新
     public List<Admin> list() {
         return adminmapper.list();
     }
