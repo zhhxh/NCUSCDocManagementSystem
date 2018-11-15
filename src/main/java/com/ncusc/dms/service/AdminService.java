@@ -24,7 +24,7 @@ public class AdminService {
     @Autowired
     AdminMapper adminmapper;
 
-    @CachePut(cacheNames = "admin_cache",key = "'id_'+id")//直接更新
+    @CachePut(cacheNames = "admin_cache",key = "'id_'+#id")//直接更新
     public Admin add(Admin admin) {
         adminmapper.add(admin);
         return adminmapper.get(admin.getId());
@@ -33,7 +33,7 @@ public class AdminService {
     public void delete(String id) {
         adminmapper.delete(id);
     }
-    @CachePut(cacheNames = "admin_cache",key = "'id_'+id")
+    @CachePut(cacheNames = "admin_cache",key = "'id_'+#id")
     public Admin update(Admin admin) {
         adminmapper.update(admin);
         return  adminmapper.get(admin.getId());
@@ -42,6 +42,7 @@ public class AdminService {
     public Admin get(String id) {
         return adminmapper.get(id);
     }
+    @Cacheable(cacheNames = "admin_cache", key = "adminlist")//检查后更新
     public List<Admin> list() {
         return adminmapper.list();
     }
