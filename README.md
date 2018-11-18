@@ -1,4 +1,4 @@
-# NCUSCDocManagementSystem
+# NCUSCDocMS
 南昌大学软件学院电子文档及科研课题管理系统
 
   
