@@ -3,8 +3,11 @@ package com.ncusc.dms.controllers;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import com.ncusc.dms.pojo.Admin;
+import com.ncusc.dms.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,27 +23,28 @@ import com.ncusc.dms.repository.Student_CourseRepository;
  * @version 1.0.0
  *
  */
+@Controller
 @RestController
 public class AdminController {
-//    @Autowired
-//    AdminService adminService;
+    @Autowired
+	AdminService adminService;
     @Autowired
     StudentRepository studentRepositoty;
     @Autowired
     Student_CourseRepository scRepository;
-//    /**
-//     * 列出所有管理员
-//     * @param model
-//     * @return listAdmin
-//     * @throws Exception
-//     */
-//    @RequestMapping("/listAdmin")
-//    public String listAmdin(Model model) throws Exception {
-//
-//        List<Admin> adminList= adminService.list();
-//        model.addAttribute("adminList", adminList);
-//        return "test/Admin/listAdmin";//istAdmin.html的路径
-//    }
+    /**
+     * 列出所有管理员
+     * @param model
+     * @return listAdmin
+     * @throws Exception
+     */
+    @RequestMapping("/listAdmin")
+    public String listAmdin(Model model) throws Exception {
+
+        List<Admin> adminList= adminService.list();
+        model.addAttribute("adminList", adminList);
+        return "test/Admin/listAdmin";//istAdmin.html的路径
+    }
     @GetMapping("/test")
     public void test() throws Exception{
     	Student stu = new Student();
