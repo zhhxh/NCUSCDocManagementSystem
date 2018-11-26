@@ -33,7 +33,7 @@ public class DmsApplicationTests {
 
 		redisTemplate.opsForValue().set("hello", "world");
 		String value = redisTemplate.opsForValue().get("hello").toString();
-		log.info("value = " + value);
+		//log.info("value = " + value);
 
 		//redisTemplate.delete("hello");
 	}
