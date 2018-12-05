@@ -25,18 +25,22 @@ import org.springframework.test.context.junit4.SpringRunner;
 @EnableCaching
 public class DmsApplicationTests {
 
+	@Test
+	public void contextLoads() {
+
+	}
+
 	@Autowired
 	RedisTemplate redisTemplate;
 	@Test
-	public void contextLoads() {
+	public void testRedis(){
 		Assert.assertNotNull(redisTemplate);
-
 		redisTemplate.opsForValue().set("hello", "world");
 		String value = redisTemplate.opsForValue().get("hello").toString();
-		//log.info("value = " + value);
-
-		//redisTemplate.delete("hello");
+		log.info("value = " + value);
+		redisTemplate.delete("hello");
 	}
+
 	@Autowired
 	AdminMapper adminMapper;
 	@Test
