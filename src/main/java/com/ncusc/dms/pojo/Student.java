@@ -1,70 +1,42 @@
-/**
- * Student.java
- *  
- * Nov 21, 2018
- * Newkey
- * 
- */
 package com.ncusc.dms.pojo;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
- * @author Newkey
- *
- */
-@Entity
-@Table(name="t_stu_info")
+ * @author newKey and fxd
+ * @version 1.0.0
+ * time: 2018年12月05日
+ * 学生信息  t_student_info
+ * */
 public class Student implements Serializable{
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-    private String id;
-    private String name;
-    private String sex;
-    private String nation; //民族
-    private Date birthDate;//出生日期
-    private String major; //专业
-    private String grade; //年级
-    private String s_class;//班级
-    private String cardNum;//身份证号
-    private String d_id;//头像(文档id)
-    
-    public Student(){
-    	
-    }
-    
-    public Student(String id, String name, String sex, String nation,
-    		Date birthDate, String major, String grade, String s_class, String cardNum, String d_id){
-    	this.id = id;
-    	this.name = name;
-    	this.sex = sex;
-    	this.nation = nation;
-    	this.birthDate = birthDate;
-    	this.major = major;
-    	this.grade = grade;
-    	this.s_class = s_class;
-    	this.cardNum = cardNum;
-    	this.d_id = d_id;
-    }
-	public String getId() {
-		return id;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -856785958124569747L;
+	private String sId;//学号
+	private String sName;//姓名
+	private String sex;//性别
+	private String nation;//民族
+	private Date birthDate;//生日
+	private String majior;//专业 如软件工程
+	private String grade;//年级 如2016级
+	private String sClass;//班级 如161班
+	private String cardNum;//身份证ID
+	private String fId;//文件ID(存的头像路径)
+	public String getsId() {
+		return sId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setsId(String sId) {
+		this.sId = sId;
 	}
-	public String getName() {
-		return name;
+	public String getsName() {
+		return sName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setsName(String sName) {
+		this.sName = sName;
 	}
 	public String getSex() {
 		return sex;
@@ -84,11 +56,11 @@ public class Student implements Serializable{
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	public String getMajor() {
-		return major;
+	public String getMajior() {
+		return majior;
 	}
-	public void setMajor(String major) {
-		this.major = major;
+	public void setMajior(String majior) {
+		this.majior = majior;
 	}
 	public String getGrade() {
 		return grade;
@@ -96,11 +68,11 @@ public class Student implements Serializable{
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	public String getS_class() {
-		return s_class;
+	public String getsClass() {
+		return sClass;
 	}
-	public void setS_class(String s_class) {
-		this.s_class = s_class;
+	public void setsClass(String sClass) {
+		this.sClass = sClass;
 	}
 	public String getCardNum() {
 		return cardNum;
@@ -108,16 +80,22 @@ public class Student implements Serializable{
 	public void setCardNum(String cardNum) {
 		this.cardNum = cardNum;
 	}
-	public String getD_id() {
-		return d_id;
+	public String getfId() {
+		return fId;
 	}
-	public void setD_id(String d_id) {
-		this.d_id = d_id;
+	public void setfId(String fId) {
+		this.fId = fId;
 	}
-    @Override
-	public String toString(){
-		return String.format("id=%s, name=%s, sex=%s, nation=%s, birthDate=%s, major=%s, grade=%s, class=%s,"
-				+ "cardNum=%s, d_id=%s", id, name, sex, nation, new SimpleDateFormat("yyyy-MM-dd").format(birthDate)
-				, major,grade, s_class, cardNum,d_id);
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
+	@Override
+	public String toString() {
+		return "Student [sId=" + sId + ", sName=" + sName + ", sex=" + sex + ", nation=" + nation + ", birthDate="
+				+ birthDate + ", majior=" + majior + ", grade=" + grade + ", sClass=" + sClass + ", cardNum=" + cardNum
+				+ ", fId=" + fId + "]";
+	}
+	
+	
+	
 }
