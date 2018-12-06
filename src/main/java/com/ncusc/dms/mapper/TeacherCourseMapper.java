@@ -9,6 +9,11 @@ import com.ncusc.dms.pojo.TeacherCourse;
 
 //如何实现根据课程ID 名字来查询选了该课的教师？？
 
+/**
+ * Course 映射
+ * @author fxd
+ * @version 1.0.0
+ */
 @Mapper
 public interface TeacherCourseMapper {
 	

@@ -8,8 +8,11 @@ import org.apache.ibatis.annotations.Param;
 import com.ncusc.dms.pojo.Teacher;
 
 /**
- * 
- * */
+ * Course 映射
+ * @author fxd
+ * @version 1.0.0
+ */
+
 @Mapper
 public interface TeacherMapper {
 	

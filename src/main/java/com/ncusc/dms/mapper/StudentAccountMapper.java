@@ -8,9 +8,11 @@ import org.apache.ibatis.annotations.Param;
 import com.ncusc.dms.pojo.StudentAccount;
 
 /**
- * 
+ * Course 映射
+ * @author fxd
+ * @version 1.0.0
  * 以下添加删除时别忘了 info 表的同步
- * */
+ */
 
 @Mapper
 public interface StudentAccountMapper {

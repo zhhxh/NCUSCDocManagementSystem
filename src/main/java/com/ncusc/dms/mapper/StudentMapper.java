@@ -8,9 +8,10 @@ import org.apache.ibatis.annotations.Param;
 import com.ncusc.dms.pojo.Student;
 
 /**
- * 
- * 
- * */
+ * Course 映射
+ * @author fxd
+ * @version 1.0.0
+ */
 @Mapper
 public interface StudentMapper {
 	
