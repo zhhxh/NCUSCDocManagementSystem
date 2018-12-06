@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ncusc.dms.mapper.AdminMapper">
+
+<!-- 左边为pojo属性，右边列为对应的数据库列 -->
+<resultMap id="adminMap" type="com.ncusc.dms.pojo.Admin">
+	<id property="id" column="id" />
+	<result property="password" column="password" />
+	<result property="aName" column="aName" />
+	<result property="sex" column="sex" />
+	<result property="phoNum" column="phoNum" />
+	<result property="email" column="email" />
+	<result property="addr" column="addr" />	
+	<result property="level" column="level" />
+	<result property="regDate" column="regDate"/>
+</resultMap>
+
+<select id="getById" parameterType="String" resultMap="adminMap">
+	select id,aName from admin_info where id=#{id}
+</select>
+<select id="list" resultMap="adminMap">
+	select * from admin_info
+</select>
+</mapper>

@@ -7,8 +7,9 @@ import java.sql.Date;
   * @version 1.0.0
   * time: 2018年12月05日
   * 文件信息  t_file_info
+  * 用FileInfo命名是因为避免和java中io里的File冲突
   */
-public class File implements Serializable{
+public class FileInfo implements Serializable{
 
 	/**
 	 * 
