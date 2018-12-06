@@ -86,7 +86,7 @@ public class DmsApplicationTests {
 	@Test
 	public void testAdminService(){
 
-		Admin admin = adminService.get("0");
+		Admin admin = adminService.get("a_123");
 		System.out.println("ID:"+admin.getId());
 		System.out.println("Password:"+admin.getPassword());
 		System.out.println("Name:"+admin.getaName());
