@@ -4,12 +4,11 @@ import java.util.List;
 import com.ncusc.dms.pojo.Admin;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.context.annotation.Bean;
 
 
 /**
  * Admin 映射
- * @author WnGHAO
+ * @author WANGHAO
  * @version 1.0.0
  */
 @Mapper
