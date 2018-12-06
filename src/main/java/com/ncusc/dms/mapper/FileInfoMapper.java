@@ -7,6 +7,11 @@ import org.apache.ibatis.annotations.Param;
 
 import com.ncusc.dms.pojo.FileInfo;
 
+/**
+ * Course 映射
+ * @author fxd
+ * @version 1.0.0
+ */
 @Mapper
 public interface FileInfoMapper {
 	public void add(FileInfo file);
