@@ -4,6 +4,7 @@ import java.util.List;
 import com.ncusc.dms.pojo.Admin;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.context.annotation.Bean;
 
 
 /**
