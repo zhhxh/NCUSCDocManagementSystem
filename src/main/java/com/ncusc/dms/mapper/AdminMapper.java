@@ -15,6 +15,7 @@ public interface AdminMapper {
     /**
      * 插入一条管理员记录
      * @param admin  Admin对象
+     *
      */
     @Insert("insert into admin_info (id,password,aName,sex,phoNum,email,addr,level,regDate)"  +
             "values (#{id},#{password},#{aName},#{sex},#{phoNum},#{email},#{addr},#{level},#{regDate})")
@@ -39,7 +40,7 @@ public interface AdminMapper {
     /**
      * 根据管理员ID查询管理员
      * @param id 管理员ID
-     * @return
+     * @return 管理员对象(Admin)
      */
     @Select("select * from admin_info  where id= #{id}")
     public Admin get(@Param("id")String id);
