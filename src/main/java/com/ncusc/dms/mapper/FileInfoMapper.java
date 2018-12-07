@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import com.ncusc.dms.pojo.FileInfo;
 
 /**
- * Course 映射
+ * FileInfo 映射
  * @author fxd
  * @version 1.0.0
  */

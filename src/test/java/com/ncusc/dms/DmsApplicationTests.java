@@ -51,7 +51,6 @@ public class DmsApplicationTests {
 		String sid="8000116116";
 		System.out.println("你好aa");
 		Student student=studentMapper.getById(sid);
-		System.out.println("你好1");
 		if(student==null)
 		{
 			System.out.println("空了啊！");
