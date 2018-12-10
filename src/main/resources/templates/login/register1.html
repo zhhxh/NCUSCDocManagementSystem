@@ -6,53 +6,53 @@
  <script src="js/alert.js"></script>
 </head>
 <body>
- <form  action="/register" method="POST" th:object="${student}" onsubmit="return fnRegister()">
+ <form  action="/register" method="POST"  onsubmit="return fnRegister()">
 <div class="box" id="container" style="width: 400px" >
  <div id="header" style="background-color: aquamarine">
   <h2 th:text="${title}">注册</h2>
  </div>
  <div id="content">
                 学号:<br>
-         <input type="text" id="stuId" placeholder="请输入10位学号" name="sId" th:value="*{sId}">
+         <input type="text" id="stuId" placeholder="请输入10位学号" name="sId" th:value="${student.sId}" >
          <br>
                 密码:<br>
-         <input type="password" id="psw" placeholder="请输入5-10位密码" >
+         <input type="password" id="psw" placeholder="请输入5-10位密码" name="password" th:value="${studentAccount.password}">
          <br>
                 重复密码:<br>
          <input type="password" id="repsw" placeholder="请输入5-10位密码">
          <br>
                  姓名:<br>
-         <input type="text" id="name" placeholder="请输入姓名"  name="sName" th:value="*{sName}">
+         <input type="text" id="name" placeholder="请输入姓名"  name="sName" th:value="${student.sName}">
          <br>
                  性别:<br>
-         <input type="text" id="sex" placeholder="男/女" name="sex" th:value="*{sex}">
+         <input type="text" id="sex" placeholder="男/女" name="sex" th:value="${student.sex}">
          <br>
                  民族:<br>
-         <input type="text" id="nation" placeholder="如:汉族" name="nation" th:value="*{nation}">
+         <input type="text" id="nation" placeholder="如:汉族" name="nation" th:value="${student.nation}">
          <br>
                 出生日期:<br>
-         <input type="date" id="birth" placeholder="请输入生日" name="birthDate" th:value="*{birthDate}">
+         <input type="date" id="birth" placeholder="请输入生日" name="birthDate" th:value="${student.birthDate}">
          <br>
                 专业:<br>
-         <input type="text" id="major" placeholder="如:软件工程" name="major" th:value="*{major}">
+         <input type="text" id="major" placeholder="如:软件工程" name="major" th:value="${student.major}">
          <br>
                 年级:<br>
-         <input type="text" id="grade" placeholder="如:2016级" name="grade" th:value="*{grade}">
+         <input type="text" id="grade" placeholder="如:2016级" name="grade" th:value="${student.grade}">
          <br>
                 班级:<br>
-         <input type="text" id="sclass" placeholder="如:161班" name="sClass" th:value="*{sClass}">
+         <input type="text" id="sclass" placeholder="如:161班" name="sClass" th:value="${student.sClass}">
          <br>
                身份证号:<br>
-         <input type="text" id="cardNum" placeholder="请输入身份证号" name="cardNum" th:value="*{cardNum}">
+         <input type="text" id="cardNum" placeholder="请输入身份证号" name="cardNum" th:value="${student.cardNum}">
          <br>
                 手机号:<br>
-         <input type="text" id="mobile" placeholder="请输入手机号" name="mobile" th:value="*{mobile}">
+         <input type="text" id="mobile" placeholder="请输入手机号" name="telNum" th:value="${studentAccount.telNum}">
          <br>
                 邮箱:<br>
-         <input type="text" id="email" placeholder="请输入邮箱" name="email" th:value="*{email}">
+         <input type="text" id="email" placeholder="请输入邮箱" name="email" th:value="${studentAccount.email}">
          <br>
                 头像:<br>
-         <input type="file" id="fId" >
+         <input type="file" id="fId" name="fId" th:value="${student.fId}">
   <input type="submit" value="提交">
  </div>
 </div>
@@ -75,9 +75,8 @@
             	 //alert(data)
                  var re = JSON.parse(data)
                  //alert(re)
-                 if (re.data == "false")
+                 if (re.reponse == "false")
                  {
-                     //alert("此用户名已被注册！")
                      myAlert('系统提示','此用户名已被注册',function(){
                     	 window.location.href="/register"
                      })

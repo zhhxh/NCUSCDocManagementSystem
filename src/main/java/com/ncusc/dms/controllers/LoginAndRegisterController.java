@@ -23,6 +23,7 @@ import com.ncusc.dms.mapper.StudentAccountMapper;
 import com.ncusc.dms.mapper.StudentMapper;
 import com.ncusc.dms.pojo.Student;
 import com.ncusc.dms.pojo.StudentAccount;
+import com.ncusc.dms.service.StudentService;
 
 /**
  * @author Newkey
@@ -31,6 +32,8 @@ import com.ncusc.dms.pojo.StudentAccount;
 @RestController
 public class LoginAndRegisterController {
 	
+	@Autowired
+	StudentService studentService;
 	@Autowired
 	StudentMapper studentMapper;
 	@Autowired
@@ -54,32 +57,24 @@ public class LoginAndRegisterController {
 	@GetMapping("register")
 	public ModelAndView registerGet(Model model){
 		model.addAttribute("student", new Student());
+		model.addAttribute("studentAccount", new StudentAccount());
 		model.addAttribute("title", "学生注册");
 		return new ModelAndView("login/register1");
 	}
-	/**
-	 * 
-	 * @param student
-	 * @param request
-	 * @return
-	 *
-	 */
+    /**
+     * 注册提交的表单
+     * @param student
+     * @param studentAccount
+     * @return
+     *
+     */
 	@PostMapping("register")
-    public ModelAndView registerPost(Student student,HttpServletRequest request){
-		//student.toString();
-		System.out.println(student.toString());
-		System.out.println("this is register post");
-//		StudentAccount studentAccount = new StudentAccount();
-//		studentAccount.setsId(student.getsId());
-//		studentAccount.setPassword(request.getParameter("psw"));
-//		studentAccount.setTelNum(student.getMobile());
-//		studentAccount.setEmail(student.getEmail());
-//		studentMapper.add(student);
-//		studentAccountMapper.add(studentAccount);
+    public ModelAndView registerPost(Student student,StudentAccount studentAccount){
+		studentService.add(student, studentAccount);
 		return new ModelAndView("redirect:/login");
 	}
 	/**
-	 * 
+	 * 注册时验证学号是否已被注册
 	 * @param request
 	 * @return
 	 *
@@ -87,14 +82,35 @@ public class LoginAndRegisterController {
 	@GetMapping("registerAjax")
 	public String registerIdf(HttpServletRequest request){
 		  String reponse;
-		  String str = request.getParameter("stuId");
-		  //System.out.println(str);
-		  Student st = studentMapper.getById(str);
+		  String stuId = request.getParameter("stuId");
+		  Student st = studentMapper.getById(stuId);
 		  if(st == null)
-			   reponse = "{\"data\":\"true\"}";
+			   reponse = "{\"reponse\":\"true\"}";
 		  else
-			  reponse = "{\"data\":\"false\"}";
-		  //System.out.println(reponse);
+			  reponse = "{\"reponse\":\"false\"}";
 		  return reponse;
+	}
+	/**
+	 * 验证登陆
+	 * @param request
+	 * @return
+	 *
+	 */
+	@GetMapping("loginAjax")
+	public String loginIdf(HttpServletRequest request){
+		String reponse;
+	    String stuId = request.getParameter("stuId");
+	    String password = request.getParameter("stuPsw");
+	    StudentAccount studentAccount = studentAccountMapper.getById(stuId);
+	    if(studentAccount == null){
+	    	reponse = "{\"reponse\":\"Null\"}";
+	    }
+	    else if(password.equals(studentAccount.getPassword()) == false){
+	    	reponse = "{\"reponse\":\"Error\"}";
+	    }
+	    else{
+	    	reponse = "{\"reponse\":\"Succeed\"}";
+	    }
+	    return reponse;
 	}
 }
