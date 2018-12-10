@@ -25,6 +25,7 @@ public class Student implements Serializable{
 	private String grade;//年级 如2016级
 	private String sClass;//班级 如161班
 	private String cardNum;//身份证ID
+<<<<<<< HEAD
 	private String mobile;//手机号
 	private String email;//邮箱
 	public String getMobile() {
@@ -44,6 +45,9 @@ public class Student implements Serializable{
 	public Student(){
 		
 	}
+=======
+	private String fId;//文件ID(头像路径)
+>>>>>>> 0b467885098883248c89029484a9ac4dc35bff4d
 	public String getsId() {
 		return sId;
 	}
