@@ -1,16 +1,209 @@
-CREATE SCHEMA `dmsdb` ;
--- 管理员表
-CREATE TABLE `dmsdb`.`admin_info` (
-  `id` 		    VARCHAR(20) 	NOT NULL,												-- 管理员ID
-  `password` 	VARCHAR(30) 	default '123456',										-- 管理员密码
-  `name` 		VARCHAR(20) 	NOT NULL,												-- 管理员姓名
-  `sex` 		VARCHAR(10) 	default '男',											-- 管理员性别
-  `phoNum`		VARCHAR(20) 	NULL,													-- 管理员手机
-  `email`       VARCHAR(40)   NULL,                                                    -- 管理员邮箱
-  `addr` 		VARCHAR(50) 	NULL,													-- 管理员地址
-  `level` 		INT 			default 0,												-- 管理员权限
-  `date`		DATE 			NULL,													-- 管理员注册日期
-  PRIMARY KEY (`id`)
+/*
+SQLyog Enterprise v12.09 (64 bit)
+MySQL - 5.7.21 : Database - dmsdb
+*********************************************************************
+*/
 
- );
- INSERT INTO `dmsdb`.`admin_info` VALUES('0','123456','王浩','男', '15270496554', '1727386617@qq.com','南京东路235号', 0, '2018-07-10');
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`dmsdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `dmsdb`;
+
+/*Table structure for table `admin_info` */
+
+DROP TABLE IF EXISTS `admin_info`;
+
+CREATE TABLE `admin_info` (
+  `id` varchar(20) NOT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `aName` varchar(10) DEFAULT NULL,
+  `sex` varchar(1) DEFAULT NULL,
+  `phoNum` varchar(20) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `addr` varchar(50) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `regDate` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `admin_info` */
+
+insert  into `admin_info`(`id`,`password`,`aName`,`sex`,`phoNum`,`email`,`addr`,`level`,`regDate`) values ('a_123','123456','赵霞','女','18712345678','ncu@qq.com','江西省南昌西路',0,'2018-12-09');
+
+/*Table structure for table `t_course_info` */
+
+DROP TABLE IF EXISTS `t_course_info`;
+
+CREATE TABLE `t_course_info` (
+  `cId` varchar(20) NOT NULL,
+  `cName` varchar(20) NOT NULL,
+  `credit` float DEFAULT NULL,
+  `semester` int(11) DEFAULT NULL,
+  `startDate` date DEFAULT NULL,
+  `endDate` date DEFAULT NULL,
+  PRIMARY KEY (`cId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_course_info` */
+
+insert  into `t_course_info`(`cId`,`cName`,`credit`,`semester`,`startDate`,`endDate`) values ('c-2018-c++-01','c++程序设计',3,NULL,'2018-11-21','2018-12-09'),('c-2018-java-01','java程序设计',2.5,NULL,'2018-11-24',NULL);
+
+/*Table structure for table `t_dateset_info` */
+
+DROP TABLE IF EXISTS `t_dateset_info`;
+
+CREATE TABLE `t_dateset_info` (
+  `dId` varchar(50) NOT NULL,
+  `startTime` date DEFAULT NULL,
+  `endTime` date DEFAULT NULL,
+  `dType` varchar(20) DEFAULT NULL,
+  `tcId` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`dId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_dateset_info` */
+
+insert  into `t_dateset_info`(`dId`,`startTime`,`endTime`,`dType`,`tcId`) values ('ds-c++-01','2018-11-21','2018-12-01','实验一','t-00001-c-2018-c++-01'),('ds-c++-02','2018-12-12','2018-12-15','毕业设计','t-00001-c-2018-c++-01');
+
+/*Table structure for table `t_file_info` */
+
+DROP TABLE IF EXISTS `t_file_info`;
+
+CREATE TABLE `t_file_info` (
+  `fId` varchar(50) NOT NULL,
+  `fName` varchar(50) NOT NULL,
+  `fType` varchar(10) NOT NULL,
+  `size` int(11) DEFAULT NULL,
+  `path` varchar(100) NOT NULL,
+  `startDate` date DEFAULT NULL,
+  `endDate` date DEFAULT NULL,
+  `uploadDate` date DEFAULT NULL,
+  `owner` varchar(20) DEFAULT NULL,
+  `tcId` varchar(50) DEFAULT NULL,
+  `dId` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`fId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_file_info` */
+
+insert  into `t_file_info`(`fId`,`fName`,`fType`,`size`,`path`,`startDate`,`endDate`,`uploadDate`,`owner`,`tcId`,`dId`) values ('f-2018-doc','8000116112c++大作业','docx',11,'f://2018/work/c++/1班','2018-12-20',NULL,'2018-11-21','8000116116','t-00001-c-2018-c++-01','ds-c++-01');
+
+/*Table structure for table `t_stu_account` */
+
+DROP TABLE IF EXISTS `t_stu_account`;
+
+CREATE TABLE `t_stu_account` (
+  `sId` varchar(20) NOT NULL,
+  `telNum` varchar(20) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `password` varchar(20) NOT NULL,
+  PRIMARY KEY (`sId`),
+  CONSTRAINT `t_stu_account_ibfk_1` FOREIGN KEY (`sId`) REFERENCES `t_student_info` (`sId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_stu_account` */
+
+insert  into `t_stu_account`(`sId`,`telNum`,`email`,`password`) values ('8000116116','18748980084',NULL,'123456');
+
+/*Table structure for table `t_stu_course` */
+
+DROP TABLE IF EXISTS `t_stu_course`;
+
+CREATE TABLE `t_stu_course` (
+  `scId` varchar(50) NOT NULL,
+  `sId` varchar(20) DEFAULT NULL,
+  `cId` varchar(20) DEFAULT NULL,
+  `tId` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`scId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_stu_course` */
+
+insert  into `t_stu_course`(`scId`,`sId`,`cId`,`tId`) values ('8000116116-c-2018-c++-01','8000116116','c-2018-c++-01','t-00001');
+
+/*Table structure for table `t_student_info` */
+
+DROP TABLE IF EXISTS `t_student_info`;
+
+CREATE TABLE `t_student_info` (
+  `sId` varchar(20) NOT NULL,
+  `sName` varchar(10) NOT NULL,
+  `sex` varchar(1) NOT NULL,
+  `nation` varchar(15) DEFAULT NULL,
+  `birthDate` date DEFAULT NULL,
+  `major` varchar(20) DEFAULT NULL,
+  `grade` varchar(10) DEFAULT NULL,
+  `sClass` varchar(20) DEFAULT NULL,
+  `cardNum` char(18) DEFAULT NULL,
+  `fId` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`sId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_student_info` */
+
+insert  into `t_student_info`(`sId`,`sName`,`sex`,`nation`,`birthDate`,`major`,`grade`,`sClass`,`cardNum`,`fId`) values ('8000116116','fxd','男','汉','2017-06-01','软件工程','2016级','164','123456789987654321','f-2018-doc');
+
+/*Table structure for table `t_teacher_account` */
+
+DROP TABLE IF EXISTS `t_teacher_account`;
+
+CREATE TABLE `t_teacher_account` (
+  `tId` varchar(20) NOT NULL,
+  `telNum` varchar(20) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `password` varchar(20) NOT NULL,
+  `isAdmin` bit(1) DEFAULT b'0',
+  PRIMARY KEY (`tId`),
+  CONSTRAINT `t_teacher_account_ibfk_1` FOREIGN KEY (`tId`) REFERENCES `t_teacher_info` (`tId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_teacher_account` */
+
+insert  into `t_teacher_account`(`tId`,`telNum`,`email`,`password`,`isAdmin`) values ('t-00001','18748980084','fxd1209@qq.com','123456',''),('t-00002','18798891209','fxdwork@qq.com','123456','\0');
+
+/*Table structure for table `t_teacher_course` */
+
+DROP TABLE IF EXISTS `t_teacher_course`;
+
+CREATE TABLE `t_teacher_course` (
+  `tcId` varchar(50) NOT NULL,
+  `tId` varchar(20) DEFAULT NULL,
+  `cId` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`tcId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_teacher_course` */
+
+insert  into `t_teacher_course`(`tcId`,`tId`,`cId`) values ('t-00001-c-2018-c++-01','t-00001','c-2018-c++-01');
+
+/*Table structure for table `t_teacher_info` */
+
+DROP TABLE IF EXISTS `t_teacher_info`;
+
+CREATE TABLE `t_teacher_info` (
+  `tId` varchar(20) NOT NULL,
+  `tName` varchar(10) DEFAULT NULL,
+  `sex` varchar(1) DEFAULT NULL,
+  `nation` varchar(15) DEFAULT NULL,
+  `birthDate` date DEFAULT NULL,
+  `cardNum` char(18) DEFAULT NULL,
+  `position` varchar(20) DEFAULT NULL,
+  `fId` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`tId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_teacher_info` */
+
+insert  into `t_teacher_info`(`tId`,`tName`,`sex`,`nation`,`birthDate`,`cardNum`,`position`,`fId`) values ('t-00001','韩玥','男','汉','2018-11-21','520202199812095201','讲师','d-00001'),('t-00002','赵霞','女','苗','2018-11-14',NULL,'教授','d-2018-doc');
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
