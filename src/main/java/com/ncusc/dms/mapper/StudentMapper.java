@@ -2,6 +2,7 @@ package com.ncusc.dms.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -19,7 +20,9 @@ public interface StudentMapper {
 	 * @param student 学生对象
 	 * @return 添加条数
 	 * */
-	public int add(Student student);
+	@Insert("insert into t_student_info(sId,sName,sex,nation,birthDate,major,grade,sClass,cardNum,fId)"
+			+ "values(#{sId},#{sName},#{sex},#{nation},#{birthDate},#{major},#{grade},#{sClass},#{cardNum},#{fId})")
+	public void add(Student student);
 	/**
 	 * 获取所有学生
 	 * @return 学生对象List(List<Student>)
