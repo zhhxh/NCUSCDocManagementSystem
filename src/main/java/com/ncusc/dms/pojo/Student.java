@@ -21,11 +21,29 @@ public class Student implements Serializable{
 	private String sex;//性别
 	private String nation;//民族
 	private Date birthDate;//生日
-	private String majior;//专业 如软件工程
+	private String major;//专业 如软件工程
 	private String grade;//年级 如2016级
 	private String sClass;//班级 如161班
 	private String cardNum;//身份证ID
+	private String mobile;//手机号
+	private String email;//邮箱
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	private String fId;//文件ID(存的头像路径)
+	
+	public Student(){
+		
+	}
 	public String getsId() {
 		return sId;
 	}
@@ -56,11 +74,11 @@ public class Student implements Serializable{
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	public String getMajior() {
-		return majior;
+	public String getMajor() {
+		return major;
 	}
-	public void setMajior(String majior) {
-		this.majior = majior;
+	public void setMajor(String major) {
+		this.major = major;
 	}
 	public String getGrade() {
 		return grade;
@@ -92,7 +110,7 @@ public class Student implements Serializable{
 	@Override
 	public String toString() {
 		return "Student [sId=" + sId + ", sName=" + sName + ", sex=" + sex + ", nation=" + nation + ", birthDate="
-				+ birthDate + ", majior=" + majior + ", grade=" + grade + ", sClass=" + sClass + ", cardNum=" + cardNum
+				+ birthDate + ", majior=" + major + ", grade=" + grade + ", sClass=" + sClass + ", cardNum=" + cardNum
 				+ ", fId=" + fId + "]";
 	}
 	

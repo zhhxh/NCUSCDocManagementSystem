@@ -19,6 +19,10 @@ public class StudentAccount implements Serializable{
 	private String telNum;//手机号
 	private String email;//邮箱
 	private String password; //密码
+	
+	public StudentAccount(){
+		
+	}
 	public String getsId() {
 		return sId;
 	}
