@@ -34,7 +34,7 @@ public class ImageTest {
         else{
             model.addAttribute("exception", "参数为空，需要加上src参数传入图片路径");
             model.addAttribute("url", request.getRequestURL());
-            return "errorPage";
+            return "error/errorPage";
         }
     }
 }
