@@ -34,7 +34,7 @@ public class AdminController {
 
         List<Admin> adminList= adminService.list();
         model.addAttribute("adminList", adminList);
-        return "test/Admin/listAdmin";//istAdmin.html的路径
+        return "test/Admin/listAdmin";//listAdmin.html的路径
     }
   
 }

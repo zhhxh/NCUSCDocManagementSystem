@@ -17,7 +17,7 @@ public class Admin implements Serializable {
 	 */
 	private static final long serialVersionUID = 3798147576141988856L;
 	private String id;		        //ID
-    private String password;	    //姓名
+    private String password;	    //密码
     private String aName;	        //姓名
     private String sex;	        //性别
     private String phoNum;	    //手机
