@@ -1,4 +1,4 @@
-package com.ncusc.dms.controllers;
+package com.ncusc.dms.controllers.user;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
     @Autowired
 	AdminService adminService;

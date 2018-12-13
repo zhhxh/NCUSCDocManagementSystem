@@ -148,7 +148,7 @@ CREATE TABLE `t_student_info` (
 
 /*Data for the table `t_student_info` */
 
-insert  into `t_student_info`(`sId`,`sName`,`sex`,`nation`,`birthDate`,`major`,`grade`,`sClass`,`cardNum`,`fId`) values ('8000116116','fxd','男','汉','2017-06-01','软件工程','2016级','164','123456789987654321','f-2018-doc');
+insert  into `t_student_info`(`sId`,`sName`,`sex`,`nation`,`birthDate`,`major`,`grade`,`sClass`,`cardNum`,`fId`) values ('8000116116','fxd','男','汉','2017-06-01','软件工程','2016级','164','123456789987654321','people_photo');
 
 /*Table structure for table `t_teacher_account` */
 
