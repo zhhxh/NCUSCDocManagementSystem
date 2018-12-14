@@ -2,8 +2,7 @@ package com.ncusc.dms.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 
 import com.ncusc.dms.pojo.Student;
 
@@ -24,7 +23,7 @@ public interface StudentMapper {
 	 * 获取所有学生
 	 * @return 学生对象List(List<Student>)
 	 * */
-	public List<Student> list();  
+	public List<Student> list();
 	/**
 	 * 删除学生
 	 * @param sId 学号
@@ -43,6 +42,7 @@ public interface StudentMapper {
 	 * @param sId 学号
 	 * @return 学生对象
 	 * */
+	@Select("select * from t_student_info where sId = #{id}")
 	public Student getById(@Param("id")String sId); //学号查询
 	/**
 	 * 通过名字获取学生信息
