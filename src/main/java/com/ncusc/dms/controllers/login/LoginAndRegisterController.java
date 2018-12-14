@@ -5,25 +5,9 @@
  * Newkey
  * 
  */
-package com.ncusc.dms.controllers.Login;
+package com.ncusc.dms.controllers.login;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.ncusc.dms.mapper.StudentAccountMapper;
-import com.ncusc.dms.mapper.StudentMapper;
-import com.ncusc.dms.pojo.Student;
-import com.ncusc.dms.pojo.StudentAccount;
-import com.ncusc.dms.service.StudentService;
 
 /**
  * @author Newkey

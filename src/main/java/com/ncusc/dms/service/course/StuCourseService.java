@@ -1,8 +1,7 @@
-package com.ncusc.dms.service.StudentCourseService;
+package com.ncusc.dms.service.course;
 
 import com.ncusc.dms.mapper.StudentCourseMapper;
 import com.ncusc.dms.mapper.StudentMapper;
-import com.ncusc.dms.pojo.Course;
 import com.ncusc.dms.pojo.Student;
 import com.ncusc.dms.pojo.StudentCourse;
 import org.springframework.beans.factory.annotation.Autowired;

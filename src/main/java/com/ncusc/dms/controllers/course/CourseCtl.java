@@ -1,23 +1,20 @@
-package com.ncusc.dms.controllers;
+package com.ncusc.dms.controllers.course;
 
 import com.ncusc.dms.pojo.Course;
-import com.ncusc.dms.service.CourseService;
+import com.ncusc.dms.service.course.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.xml.crypto.Data;
 import java.sql.Date;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 
 /**
  * Course控制类
- * @author ZhangHan
+ * @author ZhangHan & YangLi
  * @version 1.0.0
  *
  */

@@ -1,9 +1,9 @@
-package com.ncusc.dms.controllers.CourseCtl;
+package com.ncusc.dms.controllers.course;
 
 import com.ncusc.dms.pojo.Course;
 import com.ncusc.dms.pojo.Student;
-import com.ncusc.dms.service.StudentCourseService.StuCourseService;
-import com.ncusc.dms.service.TeacherCourseService.TeacherCourseService;
+import com.ncusc.dms.service.course.StuCourseService;
+import com.ncusc.dms.service.course.TeacherCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

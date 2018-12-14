@@ -1,4 +1,4 @@
-package com.ncusc.dms.controllers.Login;
+package com.ncusc.dms.controllers.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

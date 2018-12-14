@@ -1,14 +1,10 @@
-package com.ncusc.dms.controllers.CourseCtl;
+package com.ncusc.dms.controllers.course;
 
-import com.ncusc.dms.pojo.Student;
-import com.ncusc.dms.pojo.StudentCourse;
-import com.ncusc.dms.service.StudentCourseService.StuCourseService;
+import com.ncusc.dms.service.course.StuCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestAttribute;
-
-import java.util.List;
 
 /**
  * Course的控制类

@@ -5,7 +5,7 @@
  * Newkey
  * 
  */
-package com.ncusc.dms.service;
+package com.ncusc.dms.service.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

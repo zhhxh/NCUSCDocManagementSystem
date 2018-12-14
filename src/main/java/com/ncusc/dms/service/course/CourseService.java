@@ -1,4 +1,4 @@
-package com.ncusc.dms.service;
+package com.ncusc.dms.service.course;
 
 import com.ncusc.dms.mapper.CourseMapper;
 import com.ncusc.dms.pojo.Course;

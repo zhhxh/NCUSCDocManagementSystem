@@ -1,4 +1,4 @@
-package com.ncusc.dms.service;
+package com.ncusc.dms.service.user;
 
 import java.util.List;
 
@@ -9,9 +9,6 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 
 /**
  * Admin 的service类
