@@ -6,7 +6,7 @@ import com.ncusc.dms.mapper.AdminMapper;
 import com.ncusc.dms.mapper.StudentMapper;
 import com.ncusc.dms.pojo.Admin;
 import com.ncusc.dms.pojo.Student;
-import com.ncusc.dms.service.AdminService;
+import com.ncusc.dms.service.user.AdminService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
