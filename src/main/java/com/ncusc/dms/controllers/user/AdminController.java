@@ -1,4 +1,4 @@
-package com.ncusc.dms.controllers;
+package com.ncusc.dms.controllers.user;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
     @Autowired
 	AdminService adminService;
@@ -34,7 +35,7 @@ public class AdminController {
 
         List<Admin> adminList= adminService.list();
         model.addAttribute("adminList", adminList);
-        return "test/Admin/listAdmin";//istAdmin.html的路径
+        return "test/Admin/listAdmin";//listAdmin.html的路径
     }
   
 }

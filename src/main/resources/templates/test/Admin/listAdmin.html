@@ -24,13 +24,14 @@
         <tbody>
         <tr th:each="a: ${adminList}">
             <td th:text="${a.id}"></td>
-            <td th:text="${a.name}"></td>
+            <td th:text="${a.password}"></td>
+            <td th:text="${a.aName}"></td>
             <td th:text="${a.sex}"></td>
             <td th:text="${a.phoNum}"></td>
             <td th:text="${a.email}"></td>
             <td th:text="${a.addr}"></td>
             <td th:text="${a.level}"></td>
-            <td th:text="${a.date}"></td>
+            <td th:text="${a.regDate}"></td>
 
         </tr>
         </tbody>

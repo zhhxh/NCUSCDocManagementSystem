@@ -2,8 +2,10 @@ package com.ncusc.dms.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import com.ncusc.dms.pojo.StudentAccount;
 
@@ -19,7 +21,8 @@ public interface StudentAccountMapper {
 	 * @param studentAccount 学生账户对象
 	 * @return 添加条数
 	 * */
-	public int add(StudentAccount studentAccount);
+	@Insert("insert into t_stu_account(sId,telNum,email,password)values(#{sId},#{telNum},#{email},#{password})")
+	public void add(StudentAccount studentAccount);
 	/**
 	 * 获取所有学生账户信息
 	 * @return 学生账户对象List(List<StudentAccount>)
@@ -30,7 +33,8 @@ public interface StudentAccountMapper {
 	 * @param sId 学号
 	 * @return 学生账户(StudentAccount)对象
 	 * */
-	public StudentAccount getById(@Param("id")String sId);
+	@Select("select * from t_stu_account where sId = #{sId}")
+	public StudentAccount getById(@Param("sId")String sId);
 	/**
 	 * 通过手机号查询学生账户信息
 	 * @param telNum 手机号
