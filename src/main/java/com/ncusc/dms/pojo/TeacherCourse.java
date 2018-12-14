@@ -1,6 +1,7 @@
 package com.ncusc.dms.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author newKey and fxd
@@ -8,19 +9,30 @@ import java.io.Serializable;
  * time:2018年12月05日
  * 教师选课表 t_teacher_course
  * 暂不添加选课班级,开课教室
- * 
+ *
  */
 
 public class TeacherCourse implements Serializable{
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 2375678411159570549L;
-	
+
 	private String tcId;//教师工号+课程号
 	private String tId;//工号
 	private String cId;//课程号
+	private Course course; //课程信息
+	private List<Student> stuList;
+
+	public List<Student> getStuList() { return stuList; }
+
+	public void setStuList(List<Student> stuList) { this.stuList = stuList; }
+
+	public Course getCourse() { return course; }
+
+	public void setCourse(Course course) { this.course = course; }
+
 	public String getTcId() {
 		return tcId;
 	}
@@ -46,7 +58,7 @@ public class TeacherCourse implements Serializable{
 	public String toString() {
 		return "TeacherCourse [tcId=" + tcId + ", tId=" + tId + ", cId=" + cId + "]";
 	}
-	
-	
-	
+
+
+
 }
