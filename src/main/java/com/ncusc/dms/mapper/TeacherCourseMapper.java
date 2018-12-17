@@ -93,7 +93,7 @@ public interface TeacherCourseMapper {
 	 * @return 教师选课信息List(List<TeacherCourse>)
 	 * */
 	@Select("select * from t_teacher_course tt where cId = #{id}")
-	@ResultMap(value = "teacherMap")
+	//@ResultMap(value = "teacherMap")
 	public List<TeacherCourse> getTeaByCid(@Param("id")String cId);
 
 	/**

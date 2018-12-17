@@ -5,6 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * 登陆
+ * @author WANGHAO
+ */
 @Controller
 public class LoginController {
     @RequestMapping("/login")

@@ -1,13 +1,13 @@
 package com.ncusc.dms.config;
 
+import com.ncusc.dms.service.user.UserAccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  *
@@ -32,11 +32,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/js/**","/css/**","/images/**").permitAll()
-                .antMatchers("/404").permitAll()
-                .anyRequest()
-                .authenticated()
+                .antMatchers("/root/**").hasRole("ROOT")
+                .antMatchers("/admin/**").hasAnyRole("ADMIN","ROOT")
+                .antMatchers("/user/**").hasAnyRole("ADMIN","USER","ROOT")
+                .anyRequest().permitAll()
             .and()
                 .formLogin()
                 .loginPage("/login")
@@ -50,30 +49,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic();
     }
 
+
+    @Autowired
+    UserAccountService userAccountService;
+
     /**
-     * 用户内存验证
+     * 用户验证
      * @param auth
      * @throws Exception
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        super.configure(auth);
         auth
-                .inMemoryAuthentication()
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("root")
-                .password(new BCryptPasswordEncoder().encode("123456"))
-                .roles("ROOT")
-        .and()
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("admin")
-                .password(new BCryptPasswordEncoder().encode("123456"))
-                .roles("ADMIN", "USER")
-        .and()
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("user")
-                .password(new BCryptPasswordEncoder().encode("123456"))
-                .roles("USER");
+                .userDetailsService(userAccountService)
+                //TODO 这里使用了不加密的密码，需要选用加密算法对密码进行加密
+                .passwordEncoder(new NoEncryptedPasswordEncoder());
     }
 
 }
