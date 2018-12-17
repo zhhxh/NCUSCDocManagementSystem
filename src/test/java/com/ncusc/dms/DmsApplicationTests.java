@@ -6,7 +6,7 @@ import com.ncusc.dms.mapper.AdminMapper;
 import com.ncusc.dms.mapper.StudentMapper;
 import com.ncusc.dms.pojo.Admin;
 import com.ncusc.dms.pojo.Student;
-import com.ncusc.dms.service.AdminService;
+import com.ncusc.dms.service.user.AdminService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -39,7 +39,7 @@ public class DmsApplicationTests {
 		Assert.assertNotNull(redisTemplate);
 		redisTemplate.opsForValue().set("hello", "world");
 		String value = redisTemplate.opsForValue().get("hello").toString();
-		log.info("value = " + value);
+		//log.info("value = " + value);
 		redisTemplate.delete("hello");
 	}
 

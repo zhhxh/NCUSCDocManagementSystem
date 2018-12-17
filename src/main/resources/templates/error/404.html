@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <meta charset="UTF-8"> 
     <title>404</title>
+	<link rel="stylesheet" href="/css/error/error.css">
+    <link rel="stylesheet" type="text/css" href="/css/supersized.css"/>
 </head>
-<body>
-<p>404</p>
+<body>   
+<div id="supersized"></div> 
+<br /><br />
+<h1>Page Not Found</h1>
+<section class="error-container">
+	<span>4</span>
+	<span><span class="screen-reader-text">0</span></span>
+	<span>4</span>
+</section>
+<br />
+<a href="/" target="_blank"><p class="zoom-area">点此返回主界面</p></a>
+<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/js/supersized-init.js"></script>
+<script type="text/javascript" src="/js/supersized.3.2.7.min.js"></script>
 </body>
 </html>

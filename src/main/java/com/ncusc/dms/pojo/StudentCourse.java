@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class StudentCourse implements Serializable{
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -3888485904391428135L;
 
@@ -19,6 +19,10 @@ public class StudentCourse implements Serializable{
 	private String sId;//学号
 	private String cId;//课程号
 	private String tId;//任课教师
+	private Teacher teacher; //任课教师的信息
+
+	public Teacher getTeacher() { return teacher; }
+	public void setTeacher(Teacher teacher) { this.teacher = teacher; }
 	public String getScId() {
 		return scId;
 	}
@@ -50,6 +54,6 @@ public class StudentCourse implements Serializable{
 	public String toString() {
 		return "StudentCourse [scId=" + scId + ", sId=" + sId + ", cId=" + cId + ", tId=" + tId + "]";
 	}
-	
-	
+
+
 }
